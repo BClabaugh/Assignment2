@@ -8,7 +8,7 @@
             "weight": "120",
             "price": "300",
             "gender": "Ewe",
-            "image": "./src/images/sheep1.jpg"
+            "image": "/images/sheep1.jpg"
         },
         {
             "index": 2,
@@ -18,7 +18,7 @@
             "weight": "110",
             "price": "250",
             "gender": "Ewe",
-            "image": "./images/sheep2.jpg"
+            "image": "/images/sheep2.jpg"
         },
         {
             "index": 3, 
