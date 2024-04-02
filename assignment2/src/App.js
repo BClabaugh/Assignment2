@@ -2,18 +2,18 @@ import "./App.css";
 import React, {useState} from "react";
 
 let sheep = require('./data.json');
-const render_products = (ProductsCategory) => {
+const render_products = (SheepHerd) => {
   return (
     <div className="category-section fixed">
       <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
-        Products ({ProductsCategory.length})
+        Products ({SheepHerd.length})
       </h2>
       <div
         className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10"
         style={{ maxHeight: "800px", overflowY: "scroll" }}
       >
         {/* Loop Products */}
-        {ProductsCategory.map((sheep, index) => {
+        {SheepHerd.map((sheep, index) => {
           return (
             <div key={index} className="group relative shadow-lg">
               <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
@@ -52,8 +52,7 @@ const render_products = (ProductsCategory) => {
 
 
 const App = () => {
-    console.log("Step 1 : load Products in a useState.");
-    const [ProductsCategory] = useState(sheep);
+    const [SheepHerd] = useState(sheep);
     return (
       <div className="flex fixed flex-row">
         <div
@@ -63,11 +62,11 @@ const App = () => {
           <div className="px-6 py-4">
             <h1 className="text-3xl mb-2 font-bold text-white">
               {" "}
-              Product Catalog App{" "}
+              Sheep Auction{" "}
             </h1>
             <p className="text-gray-700 text-white">
               by -{" "}
-              <b style={{ color: "Green" }}>
+              <b style={{ color: "White" }}>
                 Blake Clabaugh, Zach Schmitz
               </b>
             </p>
@@ -80,9 +79,9 @@ const App = () => {
           {console.log(
             "Before render :",
             sheep.length,
-            ProductsCategory.length
+            SheepHerd.length
           )}
-          {render_products(ProductsCategory)}
+          {render_products(SheepHerd)}
         </div>
       </div>
     );
