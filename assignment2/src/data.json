@@ -8,18 +8,16 @@
             "weight": "120",
             "price": "300",
             "gender": "Ewe",
-            "description": "White Fudge is a majestic suffolk ewe with a gentle disposition. Born in 2012, she boasts a beautiful white fleece and is sure to enhance any flock.",
-            "image": "../images/sheep1.jpg"
+            "image": "./src/images/sheep1.jpg"
         },
         {
             "index": 2,
-            "name": "Brownie",
+            "name": "Blackie",
             "birth_year": "2015",
             "breed": "Merino",
             "weight": "110",
             "price": "250",
             "gender": "Ewe",
-            "description": "Brownie, a delightful merino ewe born in 2015, is known for her soft brown wool and friendly demeanor. She would make a wonderful addition to your flock.",
             "image": "./images/sheep2.jpg"
         },
         {
@@ -30,7 +28,6 @@
             "weight": "130",
             "price": "350",
             "gender": "Ewe",
-            "description": "Meet Fluffykins, an adorable suffolk ewe born in 2018. With his fluffy white coat and playful personality, she's sure to capture your heart.",
             "image": "./images/sheep3.jpg"
         },
         {
@@ -41,7 +38,6 @@
             "weight": "125",
             "price": "320",
             "gender": "Ram",
-            "description": "Charming, a charming Southdown ram born in 2019, has a lovely disposition and beautiful fleece. He would make a wonderful companion for your flock.",
             "image": "./images/sheep4.jpg"
         },
         {
@@ -52,7 +48,6 @@
             "weight": "140",
             "price": "380",
             "gender": "Ewe",
-            "description": "Cotton, a regal romney ewe born in 2017, is known for his fine wool and strong build. She would be a valuable addition to any shepherd's flock.",
             "image": "./images/sheep5.jpg"
         },
         {
@@ -63,7 +58,6 @@
             "weight": "115",
             "price": "280",
             "gender": "Wether ",
-            "description": "Snowflake, a graceful lincoln wether born in 2016, is known for his striking appearance and gentle nature. He would bring elegance to any flock.",
             "image": "./images/sheep6.jpg"
         }
     ]
