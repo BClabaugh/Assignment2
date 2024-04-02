@@ -9,7 +9,7 @@
             "price": "300",
             "gender": "Ewe",
             "description": "White Fudge is a majestic suffolk ewe with a gentle disposition. Born in 2012, she boasts a beautiful white fleece and is sure to enhance any flock.",
-            "image": "./images/sheep1.jpg"
+            "image": "../images/sheep1.jpg"
         },
         {
             "index": 2,

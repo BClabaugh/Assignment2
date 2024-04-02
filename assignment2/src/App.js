@@ -1,8 +1,6 @@
 import "./App.css";
 import React, {useState} from "react";
 
-let i = 0;
-
 let sheep = require('./data.json');
 const render_products = (ProductsCategory) => {
   return (
@@ -16,35 +14,37 @@ const render_products = (ProductsCategory) => {
       >
         {/* Loop Products */}
         {ProductsCategory.map((sheep, index) => {
-          <div key={index} className="group relative shadow-lg">
-            <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
-              <img
-                alt="Product Image"
-                src={sheep.image}
-                className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-              />
-            </div>
-            <div className="flex justify-between p-3">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  <a href={sheep.href}>
-                    <span aria-hidden="true" className="absolute inset-0" />
-                    <span style={{ fontSize: "16px", fontWeight: "600" }}>
-                      {sheep.name}
-                    </span>
-                  </a>
-                  <p>Tag - {sheep.category}</p>
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  Rating: {sheep.breed}
+          return (
+            <div key={index} className="group relative shadow-lg">
+              <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
+                <img
+                  src={sheep.image}
+                  alt={sheep.name}
+                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                />
+              </div>
+              <div className="flex justify-between p-3">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={sheep.href}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                        {sheep.name}
+                      </span>
+                    </a>
+                    <p>{sheep.breed}</p>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Weighs {sheep.weight}
+                  </p>
+                </div>
+                <p className="text-sm font-medium text-green-600">
+                  ${sheep.price}
                 </p>
               </div>
-              <p className="text-sm font-medium text-green-600">
-                ${sheep.price}
-              </p>
             </div>
-          </div>
-      })}
+          );
+        })}
       </div>
     </div>
   );
@@ -53,15 +53,7 @@ const render_products = (ProductsCategory) => {
 
 const App = () => {
     console.log("Step 1 : load Products in a useState.");
-    const [ProductsCategory, setProductsCategory] = useState(sheep);
-    function handleClick(tag) {
-    console.log("Step 4 : in handleClick", tag);
-    let filtered = sheep.filter((cat) => cat.category === tag);
-    // modify useState
-    setProductsCategory(filtered);
-    // ProductsCategory = filtered;
-    console.log("Step 5 : ", sheep.length, ProductsCategory.length);
-    }
+    const [ProductsCategory] = useState(sheep);
     return (
       <div className="flex fixed flex-row">
         <div
@@ -97,6 +89,5 @@ const App = () => {
 }; 
  // end App
 
-
-
 export default App;
+   
