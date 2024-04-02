@@ -1,6 +1,7 @@
-{
-    "sheep": [
+
+    [
         {
+            "index": 1,
             "name": "White Fudge",
             "birth_year": "2012",
             "breed": "Suffolk",
@@ -11,6 +12,7 @@
             "image": "./images/sheep1.jpg"
         },
         {
+            "index": 2,
             "name": "Brownie",
             "birth_year": "2015",
             "breed": "Merino",
@@ -21,6 +23,7 @@
             "image": "./images/sheep2.jpg"
         },
         {
+            "index": 3, 
             "name": "Fluffykins",
             "birth_year": "2018",
             "breed": "Suffolk",
@@ -31,6 +34,7 @@
             "image": "./images/sheep3.jpg"
         },
         {
+            "index": 4,
             "name": "Charming",
             "birth_year": "2019",
             "breed": "Southdown",
@@ -41,6 +45,7 @@
             "image": "./images/sheep4.jpg"
         },
         {
+            "index": 5,
             "name": "Cotton",
             "birth_year": "2017",
             "breed": "Romney",
@@ -51,6 +56,7 @@
             "image": "./images/sheep5.jpg"
         },
         {
+            "index": 6,
             "name": "Snowflake",
             "birth_year": "2016",
             "breed": "Lincoln",
@@ -61,4 +67,3 @@
             "image": "./images/sheep6.jpg"
         }
     ]
-}

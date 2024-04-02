@@ -1,5 +1,9 @@
 import "./App.css";
+import React, {useState} from "react";
 
+let i = 0;
+
+let sheep = require('./data.json');
 const render_products = (ProductsCategory) => {
   return (
     <div className="category-section fixed">
@@ -11,39 +15,88 @@ const render_products = (ProductsCategory) => {
         style={{ maxHeight: "800px", overflowY: "scroll" }}
       >
         {/* Loop Products */}
-        {ProductsCategory.map((product, index) => (
+        {ProductsCategory.map((sheep, index) => {
           <div key={index} className="group relative shadow-lg">
             <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
               <img
                 alt="Product Image"
-                src={product.image}
+                src={sheep.image}
                 className="w-full h-full object-center object-cover lg:w-full lg:h-full"
               />
             </div>
             <div className="flex justify-between p-3">
               <div>
                 <h3 className="text-sm text-gray-700">
-                  <a href={product.href}>
+                  <a href={sheep.href}>
                     <span aria-hidden="true" className="absolute inset-0" />
                     <span style={{ fontSize: "16px", fontWeight: "600" }}>
-                      {product.title}
+                      {sheep.name}
                     </span>
                   </a>
-                  <p>Tag - {product.category}</p>
+                  <p>Tag - {sheep.category}</p>
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
-                  Rating: {product.rating.rate}
+                  Rating: {sheep.breed}
                 </p>
               </div>
               <p className="text-sm font-medium text-green-600">
-                ${product.price}
+                ${sheep.price}
               </p>
             </div>
           </div>
-        ))}
+      })}
       </div>
     </div>
   );
 };
+
+
+const App = () => {
+    console.log("Step 1 : load Products in a useState.");
+    const [ProductsCategory, setProductsCategory] = useState(sheep);
+    function handleClick(tag) {
+    console.log("Step 4 : in handleClick", tag);
+    let filtered = sheep.filter((cat) => cat.category === tag);
+    // modify useState
+    setProductsCategory(filtered);
+    // ProductsCategory = filtered;
+    console.log("Step 5 : ", sheep.length, ProductsCategory.length);
+    }
+    return (
+      <div className="flex fixed flex-row">
+        <div
+          className="h-screen bg-slate-800 p-3 xl:basis-1/5"
+          style={{ minWidth: "65%" }}
+        >
+          <div className="px-6 py-4">
+            <h1 className="text-3xl mb-2 font-bold text-white">
+              {" "}
+              Product Catalog App{" "}
+            </h1>
+            <p className="text-gray-700 text-white">
+              by -{" "}
+              <b style={{ color: "Green" }}>
+                Blake Clabaugh, Zach Schmitz
+              </b>
+            </p>
+            <div className="py-10">
+              
+            </div>
+          </div>
+        </div>
+        <div className="ml-5 p-10 xl:basis-4/5">
+          {console.log(
+            "Before render :",
+            sheep.length,
+            ProductsCategory.length
+          )}
+          {render_products(ProductsCategory)}
+        </div>
+      </div>
+    );
+}; 
+ // end App
+
+
 
 export default App;
