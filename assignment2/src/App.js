@@ -11,7 +11,7 @@ const [cartTotal, setCartTotal] = useState(0);
 const { register, handleSubmit, formState: { errors } } = useForm();
 const [dataF,setDataF] = useState({});
 const [viewer,setViewer] = useState(0);
-const render_products = () => sheeps.map((sheep) => (
+const render_products = sheeps.map((sheep) => (
             <div >
               <div key={sheep.id} className="group relative shadow-lg">
                 <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
@@ -94,26 +94,7 @@ const total = () => {
 };
 
 
-
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search for sheep..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="p-2 border rounded"
-      />
-      {filteredSheep.map((sheep, index) => (
-        <div key={index}>
-          <h2>{sheep.name}</h2>
-          {/* Render other sheep details here */}
-        </div>
-      ))}
-    </div>
-  );
-};
-
+  
 
     function Start(){
       
@@ -163,7 +144,7 @@ const total = () => {
           </div>
         </div>
         
-      );
+      );}
       function Cart(){
       
         const updateHooks = () => {
@@ -212,7 +193,7 @@ const total = () => {
           </div>
         </div>
         
-      );
+      );}
 
       return(
         <div>
@@ -220,9 +201,9 @@ const total = () => {
           {viewer === 1 && <Cart />}
         </div>
       )
-}
-    }
+
     
+  }
     
 
  // end App
