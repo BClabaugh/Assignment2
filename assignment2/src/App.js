@@ -5,12 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import sheeps from "./data.json";
 
 const App = () => {
-let search = "";
 const [cart, setCart] = useState([]);
 const [cartTotal, setCartTotal] = useState(0);
 const { register, handleSubmit, formState: { errors } } = useForm();
 const [dataF,setDataF] = useState({});
 const [viewer,setViewer] = useState(0);
+const [searchInput, setSearchInput] = useState("");
 
 const render_products =  sheeps.map((sheep) => (
             <div>
@@ -61,9 +61,43 @@ const render_products =  sheeps.map((sheep) => (
             </div>
           </div>
 ));
+const SearchBar = ({ sheeps }) => {
+  const [searchInput, setSearchInput] = React.useState('');
 
-        
-            
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const filteredSheep = searchInput.length > 0 ? sheeps.filter((sheep) => {
+    return sheep.name.toLowerCase().includes(searchInput.toLowerCase());
+  }) : sheeps;
+
+  return (
+    <div>
+      <input
+        type="search"
+        placeholder="Search here"
+        onChange={handleChange}
+        value={searchInput} 
+      />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sheep</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredSheep.map((sheep, id) => (
+            <tr key={id}>
+              <td>{sheep.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
                 
    
 function howManyofThis(id) {
@@ -184,6 +218,7 @@ const total = () => {
         <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
           Sheep ({sheeps.length})
         </h2>
+        <searchBar sheeps={sheeps}/>
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10"
           style={{ maxHeight: "800px", overflowY: "scroll" }}
