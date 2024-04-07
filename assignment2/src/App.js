@@ -5,14 +5,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import sheeps from "./data.json";
 
 const App = () => {
-
+let search = "";
 const [cart, setCart] = useState([]);
 const [cartTotal, setCartTotal] = useState(0);
 const { register, handleSubmit, formState: { errors } } = useForm();
 const [dataF,setDataF] = useState({});
 const [viewer,setViewer] = useState(0);
-const render_products = sheeps.map((sheep) => (
-            <div >
+
+const render_products =  sheeps.map((sheep) => (
+            <div>
               <div key={sheep.id} className="group relative shadow-lg">
                 <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-60 lg:aspect-none">
                 <img
@@ -24,7 +25,7 @@ const render_products = sheeps.map((sheep) => (
               <div className="flex justify-between p-3">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href={sheep.href}>
+                    <a href={sheep.herf}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       <span style={{ fontSize: "16px", fontWeight: "600" }}>
                         {sheep.name}
@@ -60,6 +61,7 @@ const render_products = sheeps.map((sheep) => (
             </div>
           </div>
 ));
+
         
             
                 
@@ -96,7 +98,7 @@ const total = () => {
 
   
 
-    function Start(){
+    function Start(s){
       
         const updateHooks = () => {
           setViewer( 1 );
